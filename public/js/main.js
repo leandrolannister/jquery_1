@@ -1,15 +1,41 @@
-$('#phraseSize').text( () => {
-  return $('.phrase').text().split(" ").length;    
+$( () => {
+   timer();  
+   countLetterAndWordsOnTexarea();
+   countNumberWordsOfPhrase();   
 });
 
-$('.textarea').on("input",() => {
+function timer(){
+  //one->Executa uma unica vez
+  $('.textarea').one("focus", () => {
+    let timer = $('#timer').text();
   
-  $('#count_letters').text( () => {
-    return $('.textarea').val().length;
+    let cronos = setInterval( () => {     
+      $('#timer').text(timer--);
+      
+      if(timer < 0){ 
+        $('.textarea').attr('disabled', true);
+        clearInterval(cronos); 
+      }
+  
+    },1000);
   });
+}
 
-  $('#count_words').text( () => {
-    return $('.textarea').val().split(/\S+/).length;
+function countLetterAndWordsOnTexarea(){
+  $('.textarea').on("input",() => {
+  
+    $('#count_letters').text( () => {
+      return $('.textarea').val().length;
+    });
+  
+    $('#count_words').text( () => {
+      return $('.textarea').val().split(/\S+/).length;
+    });   
   });
-});
+}
 
+function countNumberWordsOfPhrase(){
+  $('#phraseSize').text( () => {
+    return $('.phrase').text().split(" ").length;    
+  });
+}
