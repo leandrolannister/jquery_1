@@ -1,8 +1,21 @@
 $( () => {
    timer();  
    countLetterAndWordsOnTexarea();
-   countNumberWordsOfPhrase();   
+   countNumberWordsOfPhrase();
+   
+   $('#btn_novo').click( () => { resetGame() });
 });
+
+function resetGame(){
+  $('#timer').text(10);   
+   
+  $('.textarea').attr('disabled', false).val("");
+
+  $('#count_letters').text(0);
+  $('#count_words').text(0);
+
+  timer();
+}
 
 function timer(){
   //one->Executa uma unica vez
