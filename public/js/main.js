@@ -10,8 +10,8 @@ function resetGame(){
   $('#timer').text(10);   
    
   $('.textarea').attr('disabled', false)
-  .removeClass('desativar-textarea')
-  .val("");
+   .toggleClass('desativar-textarea')
+   .val("");   
  
   $('#count_letters').text(0);
   $('#count_words').text(0);
@@ -29,7 +29,7 @@ function timer(){
       
       if(timer < 0){ 
         $('.textarea').attr('disabled', true)
-        .addClass('desativar-textarea');
+         .toggleClass('desativar-textarea');
 
         clearInterval(cronos); 
       }

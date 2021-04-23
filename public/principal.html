@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Alura Typer</title>
     <link rel="stylesheet" href="css/libs/materialize.min.css">
+    <link rel="stylesheet" href="css/libs/google-fonts.css">
     <link rel="stylesheet" href="css/estilos.css">
 </head> 
 <body>
@@ -14,14 +15,23 @@
       it is a boring activity.  
       </p>
       
-      <ul class="info center">
-        <li><span id="phraseSize">0</span> palavras</li>
-        <li><span id="timer">10</span> segundos</li>
+      <ul class="info center">          
+        <li>
+          <i class="small material-icons icones">description</i>
+          <span id="phraseSize">0</span> palavras
+        </li>
+          
+        <li>
+          <i class="small material-icons icones">query_builder</i>
+          <span id="timer">10</span> segundos
+        </li>
       </ul>
       
       <textarea class="textarea" cols="40" rows="8"></textarea>
       <div>
-        <button id="btn_novo">Novo</button>
+        <a id="btn_novo" class="btn-floating btn-large waves-effect waves-light red">
+          <i class="material-icons">restore</i>
+        </a>
       </div>
 
       <ul class="center">
