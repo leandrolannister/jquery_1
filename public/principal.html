@@ -3,28 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Alura Typer</title>
+    <link rel="stylesheet" href="css/libs/materialize.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
 </head> 
 <body>
-    <h1>Alura Typer</h1>
+    <div class="container">
+      <h1 class="center">Alura Typer</h1>
 
-    <p class="phrase">I don't like go to a church on Sundays. I think
-    it is a boring activity.  
-    </p>
-    
-    <ul class="info">
-      <li><span id="phraseSize">0</span> palavras</li>
-      <li><span id="timer">10</span> segundos</li>
-    </ul>
-    
-    <textarea class="textarea" cols="40" rows="8"></textarea>
-    <div>
-      <button id="btn_novo">Novo</button>
-    </div>
+      <p class="phrase center frase">I don't like go to a church on Sundays. I think
+      it is a boring activity.  
+      </p>
+      
+      <ul class="info center">
+        <li><span id="phraseSize">0</span> palavras</li>
+        <li><span id="timer">10</span> segundos</li>
+      </ul>
+      
+      <textarea class="textarea" cols="40" rows="8"></textarea>
+      <div>
+        <button id="btn_novo">Novo</button>
+      </div>
 
-    <ul>
-      <li><span id="count_letters">0</span> Caracteres</li>
-      <li><span id="count_words">0</span> Palavras</li>
-    </ul>
+      <ul class="center">
+        <li><span id="count_letters">0</span> Caracteres</li>
+        <li><span id="count_words">0</span> Palavras</li>
+      </ul>
+    </div>  
 </body>
 </html>
 <script src="js/jquery.js"></script>

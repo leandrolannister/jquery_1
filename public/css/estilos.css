@@ -1,0 +1,12 @@
+.frase {
+    font-size: 20px;
+}
+
+.textarea {
+    font-size: 20px;
+    height: 130px;
+}
+
+.desativar-textarea{
+    background-color: lightgray;
+}
