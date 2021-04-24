@@ -1,10 +1,12 @@
-.frase {
+.phrase {
     font-size: 20px;
+    text-align: left;
 }
 
 .textarea {
     font-size: 20px;
     height: 130px;
+    border: 6px solid;
 }
 
 .desativar-textarea{
@@ -13,4 +15,12 @@
 
 .icones{
     vertical-align: middle;
+}
+
+.borda-verde{
+  border: 9px solid green;
+}
+
+.borda-vermelha{
+  border: 9px solid red;
 }

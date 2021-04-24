@@ -1,4 +1,5 @@
 $( () => {
+   paintBorder();
    timer();  
    countLetterAndWordsOnTexarea();
    countNumberWordsOfPhrase();
@@ -6,12 +7,30 @@ $( () => {
    $('#btn_novo').click( () => { resetGame() });
 });
 
+function paintBorder(){
+  let phrase = $('.phrase').text();
+  $('.textarea').on('input', () => {
+    let inputText = $('.textarea').val();
+    let partOfPhrase = phrase.substr(0,inputText.length);   
+    
+    if(inputText == partOfPhrase){
+      $('.textarea').addClass('borda-verde'); 
+      $('.textarea').removeClass('borda-vermelha');
+    }else{
+      $('.textarea').addClass('borda-vermelha');
+      $('.textarea').removeClass('borda-verde');  
+    }
+  });
+}
+
 function resetGame(){
   $('#timer').text(10);   
    
   $('.textarea').attr('disabled', false)
-   .toggleClass('desativar-textarea')
-   .val("");   
+  .toggleClass('desativar-textarea')
+  .removeClass('borda-verde')
+  .removeClass('borda-vermelha')
+  .val("");   
  
   $('#count_letters').text(0);
   $('#count_words').text(0);
@@ -29,7 +48,7 @@ function timer(){
       
       if(timer < 0){ 
         $('.textarea').attr('disabled', true)
-         .toggleClass('desativar-textarea');
+        .toggleClass('desativar-textarea');
 
         clearInterval(cronos); 
       }
