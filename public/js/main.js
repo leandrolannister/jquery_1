@@ -47,14 +47,33 @@ function timer(){
       $('#timer').text(timer--);
       
       if(timer < 0){ 
-        $('.textarea').attr('disabled', true)
-        .toggleClass('desativar-textarea');
+       clearInterval(cronos); 
+       endOfTheGame();       
 
-        clearInterval(cronos); 
       }
   
     },1000);
   });
+}
+
+function endOfTheGame(){   
+  $('.textarea').attr('disabled', true)
+  .toggleClass('desativar-textarea');
+  addPlacar();  
+}
+
+function addPlacar(){
+  let tbody = $('.placar').find("tbody");
+  const USER_NAME = 'Leandro';
+  let numWords = $('#count_words').text();
+
+  let row = "<tr>"+
+              "<td>"+ USER_NAME + "</td>"+
+              "<td>"+ numWords  + "</td>"+
+            "</tr>";
+ tbody.prepend(row);              
+
+  
 }
 
 function countLetterAndWordsOnTexarea(){
