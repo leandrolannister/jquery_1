@@ -66,15 +66,22 @@ function addPlacar(){
   let tbody = $('.placar').find("tbody");
   const USER_NAME = 'Leandro';
   let numWords = $('#count_words').text();
+  let btnRemover = "<a href=\"#\" class=\"btn-remover\"><i class=\"small material-icons\">delete</i></a>";  
 
   let row = "<tr>"+
-              "<td>"+ USER_NAME + "</td>"+
-              "<td>"+ numWords  + "</td>"+
+              "<td>"+ USER_NAME  + "</td>"+
+              "<td>"+ numWords   + "</td>"+
+              "<td>"+ btnRemover + "</td>"+                
             "</tr>";
- tbody.prepend(row);              
-
-  
+ tbody.prepend(row);
 }
+
+$("#btn-remover").click( (event) =>{
+  event.preventDefault();
+  $(this).remove();
+});
+
+
 
 function countLetterAndWordsOnTexarea(){
   $('.textarea').on("input",() => {
