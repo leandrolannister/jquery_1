@@ -64,24 +64,38 @@ function endOfTheGame(){
 
 function addPlacar(){
   let tbody = $('.placar').find("tbody");
-  const USER_NAME = 'Leandro';
   let numWords = $('#count_words').text();
-  let btnRemover = "<a href=\"#\" class=\"btn-remover\"><i class=\"small material-icons\">delete</i></a>";  
+  
+  let row = addRow('Leandro', numWords);
+  
+  row.find('.btn-remover').click(function(){
+    $(this).parent().parent().remove(); 
+  });
 
-  let row = "<tr>"+
-              "<td>"+ USER_NAME  + "</td>"+
-              "<td>"+ numWords   + "</td>"+
-              "<td>"+ btnRemover + "</td>"+                
-            "</tr>";
- tbody.prepend(row);
+  tbody.prepend(row);
 }
 
-$("#btn-remover").click( (event) =>{
-  event.preventDefault();
-  $(this).remove();
-});
+ 
 
+function addRow(userName, numWords){
+  let tr = $("<tr>");
+  let userColumn = $("<td>").text(userName);
+  let wordsColumn = $("<td>").text(numWords);
+  
+  let removerColumn = $('<td>');
+  let link = $("<a>").addClass('btn-remover').attr("href", "#");
+  let icon = $("<i>").addClass('small').addClass('material-icons')
+  .text("delete");
 
+  link.append(icon);
+  removerColumn.append(link);
+
+  tr.append(userColumn);
+  tr.append(wordsColumn);
+  tr.append(removerColumn);
+
+  return tr;  
+}
 
 function countLetterAndWordsOnTexarea(){
   $('.textarea').on("input",() => {
