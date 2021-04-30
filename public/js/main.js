@@ -73,9 +73,7 @@ function addPlacar(){
   });
 
   tbody.prepend(row);
-}
-
- 
+} 
 
 function addRow(userName, numWords){
   let tr = $("<tr>");
